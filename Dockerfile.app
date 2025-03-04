@@ -20,7 +20,7 @@ RUN npm run build
 RUN npm install -g serve
 
 # Command to serve the built React app
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "build", "-l", "8080"]
 
-# Expose port 3000 for external access
-EXPOSE 3000
+# Expose port 8080 for external access
+EXPOSE 8080
