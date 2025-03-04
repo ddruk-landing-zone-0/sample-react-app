@@ -40,7 +40,7 @@ gcloud config set project $GCP_PROJECT_ID
 gcloud iam service-accounts create $SERVICE_AC_DISPLAYNAME --display-name $SERVICE_AC_DISPLAYNAME
 ```
 
-### Enable the APis
+### Enable the APis ( One Time Setup )
 ```
 gcloud services enable cloudresourcemanager.googleapis.com \
     artifactregistry.googleapis.com \
@@ -50,7 +50,7 @@ gcloud services enable cloudresourcemanager.googleapis.com \
     --project=$GCP_PROJECT_ID
 ```
 
-### Set the IAM roles ((Service includes CloudRun, GCS, Artifact Registry))
+### Set the IAM roles ((Service includes CloudRun, GCS, Artifact Registry)) ( One Time Setup )
 ```
 for role in resourcemanager.projectIamAdmin \
             iam.serviceAccountUser \
@@ -68,12 +68,12 @@ for role in resourcemanager.projectIamAdmin \
 done
 ```
 
-### Create Bucket
+### Create Bucket ( One Time Setup )
 ```
 gcloud storage buckets create gs://$BUCKET_NAME --location=US --uniform-bucket-level-access
 ```
 
-### Create GAR Registry
+### Create GAR Registry ( One Time Setup )
 ```
 gcloud artifacts repositories create $GAR_REPOSITORY_ID \
     --project=$GCP_PROJECT_ID \
@@ -82,7 +82,7 @@ gcloud artifacts repositories create $GAR_REPOSITORY_ID \
     --description="Docker repository for React server"
 ```
 
-### Creating key.json for Service Account
+### Creating key.json for Service Account ( One Time Setup )
 ```
 gcloud iam service-accounts keys create key.json \
     --iam-account=$SERVICE_AC_DISPLAYNAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
