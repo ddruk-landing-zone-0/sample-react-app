@@ -4,16 +4,13 @@ FROM node:18-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json first to leverage Docker caching
-COPY package-lock.json package-lock.json ./
+# Copy package.json and package-lock.json first (to cache dependencies)
+COPY package.json package-lock.json ./
 
 # Install dependencies
 RUN npm install
 
-# Ensure react-scripts is globally installed (Fix for missing react-scripts)
-RUN npm install -g react-scripts
-
-# Copy the rest of the app
+# Copy the rest of the app AFTER installing dependencies
 COPY . .
 
 # Build the React app
