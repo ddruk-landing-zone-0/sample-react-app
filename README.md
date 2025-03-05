@@ -101,3 +101,8 @@ sh git-push.sh main 'sample commit message'
 
 ## Verify the Deployment
 ![image](https://drive.google.com/uc?export=view&id=1QOn7-2jjjVJUICJkiz36WzTOn91gkU2L)
+
+## Use skip-ci tag to bypass CI deployment
+```
+sh git-push.sh main 'sample commit message [skip-ci]'
+```
