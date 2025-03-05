@@ -73,6 +73,8 @@ done
 gcloud storage buckets create gs://$BUCKET_NAME --location=US --uniform-bucket-level-access
 ```
 
+If you are getting this error : ERROR: (gcloud.storage.buckets.create) HTTPError 409: The requested bucket name is not available. Then, just set the bucket name with a more unique name, e.g. `export BUCKET_NAME="hackathon-bucket-021432"`
+
 ### Create GAR Registry ( One Time Setup )
 ```
 gcloud artifacts repositories create $GAR_REPOSITORY_ID \
