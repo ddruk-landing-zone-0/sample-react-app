@@ -88,12 +88,12 @@ gcloud iam service-accounts keys create key.json \
     --iam-account=$SERVICE_AC_DISPLAYNAME@$GCP_PROJECT_ID.iam.gserviceaccount.com
 ```
 Copy the content of key.json into GitHub Secrets in your repository. The GitHub secret key should be `GCP_SA_KEY`.
-
-
-## CICD specific Files
- 1. Go to `.github/workflows/pipeline-main.yml`. Just change the parameters `GCP_PROJECT_ID`, `CLOUD_RUN_SERVICE` etc as per your need.
 ![image](https://drive.google.com/uc?export=view&id=12RL5oPIvTNcE_cpCixaUjo-Hlp5YS9da)
 
+## CICD specific Files
+ Go to `.github/workflows/pipeline-main.yml`. 
+ 1. Just change the parameters `GCP_PROJECT_ID`, `CLOUD_RUN_SERVICE` etc as per your need.
+ 2. Change the 'uses' ref to : <YOUR_GH_USER_ID>/<REPO_NAME>/.github/workflows/node-gcp-main.yml@main
 ## Commit The Codes
 ```
 sh git-push.sh main 'sample commit message'
